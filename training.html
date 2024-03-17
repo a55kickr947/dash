@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .training-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .training-details h2 {
+            margin-bottom: 10px;
+        }
+
+        .training-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Training Information Form</h2>
+        <form id="trainingForm">
+            <div class="form-group">
+                <label for="trainerId">Trainer ID</label>
+                <input type="number" id="trainerId" name="trainerId" required>
+            </div>
+            <div class="form-group">
+                <label for="trainingId">Training ID</label>
+                <input type="number" id="trainingId" name="trainingId" required>
+            </div>
+            <div class="form-group">
+                <label for="trainingName">Training Name</label>
+                <input type="text" id="trainingName" name="trainingName" required>
+            </div>
+            <div class="form-group">
+                <label for="trainingDescription">Training Description</label>
+                <input type="text" id="trainingDescription" name="trainingDescription" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <div class="training-details" id="trainingDetails">
+            <h2>Training Details</h2>
+            <p><strong>Trainer ID:</strong> <span id="displayTrainerId"></span></p>
+            <p><strong>Training ID:</strong> <span id="displayTrainingId"></span></p>
+            <p><strong>Training Name:</strong> <span id="displayTrainingName"></span></p>
+            <p><strong>Training Description:</strong> <span id="displayTrainingDescription"></span></p>
+            <button id="editBtn" class="btn" style="margin-top: 10px;">Edit</button>
+            <button id="deleteBtn" class="btn" style="margin-top: 10px; background-color: red;">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("trainingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var trainerId = document.getElementById("trainerId").value;
+            var trainingId = document.getElementById("trainingId").value;
+            var trainingName = document.getElementById("trainingName").value;
+            var trainingDescription = document.getElementById("trainingDescription").value;
+
+            document.getElementById("displayTrainerId").innerText = trainerId;
+            document.getElementById("displayTrainingId").innerText = trainingId;
+            document.getElementById("displayTrainingName").innerText = trainingName;
+            document.getElementById("displayTrainingDescription").innerText = trainingDescription;
+
+            document.getElementById("trainingDetails").style.display = "block";
+        });
+
+        document.getElementById("editBtn").addEventListener("click", function() {
+            alert("Editing training information...");
+        });
+
+        document.getElementById("deleteBtn").addEventListener("click", function() {
+            if (confirm("Are you sure you want to delete this training information?")) {
+                alert("Deleting training information...");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

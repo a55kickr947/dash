@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Type Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .equipment-type-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .equipment-type-details h2 {
+            margin-bottom: 10px;
+        }
+
+        .equipment-type-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Equipment Type Information Form</h2>
+        <form id="equipmentTypeForm">
+            <div class="form-group">
+                <label for="equipmentId">Equipment ID</label>
+                <input type="text" id="equipmentId" name="equipmentId" required>
+            </div>
+            <div class="form-group">
+                <label for="equipmentType">Equipment Type</label>
+                <input type="text" id="equipmentType" name="equipmentType" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <div class="equipment-type-details" id="equipmentTypeDetails">
+            <h2>Equipment Type Details</h2>
+            <p><strong>Equipment ID:</strong> <span id="displayEquipmentId"></span></p>
+            <p><strong>Equipment Type:</strong> <span id="displayEquipmentType"></span></p>
+            <button id="editBtn" class="btn" style="margin-top: 10px;">Edit</button>
+            <button id="deleteBtn" class="btn" style="margin-top: 10px; background-color: red

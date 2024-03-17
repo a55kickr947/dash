@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .unit-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .unit-details h2 {
+            margin-bottom: 10px;
+        }
+
+        .unit-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Unit Information Form</h2>
+        <form id="unitForm">
+            <div class="form-group">
+                <label for="unitId">Unit ID</label>
+                <input type="text" id="unitId" name="unitId" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="unitCommanderId">Unit Commander ID</label>
+                <input type="text" id="unitCommanderId" name="unitCommanderId" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="numSoldiers">Number of Soldiers</label>
+                <input type="text" id="numSoldiers" name="numSoldiers" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <div class="unit-details" id="unitDetails">
+            <h2>Unit Details</h2>
+            <p><strong>Unit ID:</strong> <span id="displayUnitId"></span></p>
+            <p><strong>Name:</strong> <span id="displayName"></span></p>
+            <p><strong>Unit Commander ID:</strong> <span id="displayUnitCommanderId"></span></p>
+            <p><strong>Location:</strong> <span id="displayLocation"></span></p>
+            <p><strong>Number of Soldiers:</strong> <span id="displayNumSoldiers"></span></p>
+            <button id="editBtn" class="btn" style="margin-top: 10px;">Edit</button>
+            <button id="deleteBtn" class="btn" style="margin-top: 10px; background-color: red;">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("unitForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+           
+            var unitId = document.getElementById("unitId").value;
+            var name = document.getElementById("name").value;
+            var unitCommanderId = document.getElementById("unitCommanderId").value;
+            var location = document.getElementById("location").value;
+            var numSoldiers = document.getElementById("numSoldiers").value;
+
+           
+            document.getElementById("displayUnitId").innerText = unitId;
+            document.getElementById("displayName").innerText = name;
+            document.getElementById("displayUnitCommanderId").innerText = unitCommanderId;
+            document.getElementById("displayLocation").innerText = location;
+            document.getElementById("displayNumSoldiers").innerText = numSoldiers;
+
+           
+            document.getElementById("unitDetails").style.display = "block";
+        });
+
+        
+        document.getElementById("editBtn").addEventListener("click", function() {
+            
+            alert("Editing unit...");
+        });
+
+        
+        document.getElementById("deleteBtn").addEventListener("click", function() {
+           
+            if (confirm("Are you sure you want to delete this unit?")) {
+                
+                alert("Deleting unit...");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
